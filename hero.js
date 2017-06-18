@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 var Hero = function( name ){
   this.name = name;
   this.health = 100;
@@ -40,7 +42,13 @@ Hero.prototype = {
     if(this.health > 100){
       this.health = 100;
     }
+  },
+
+  sortTaskByDifficulty: function () {
+    this.tasks = _.orderBy(this.tasks, "difficulty", 'desc' );
+    console.log(this.tasks);
   }
+
 };
 
 module.exports= Hero;

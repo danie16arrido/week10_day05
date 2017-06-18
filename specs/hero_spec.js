@@ -1,16 +1,25 @@
 var Hero = require('../hero.js');
 var Food = require('../food.js');
+var Task = require('../task.js');
 var assert = require('assert');
-
 
 describe('Test Hero', function(){
 
   var myHero;
   var myFood;
+  var task1;
+  var task2;
+  var task3;
+  var task4;
 
   beforeEach(function () {
     myHero = new Hero("Batman");
     myFood = new Food( "Brocoli", 10);
+    task1 = new Task("Kill Monster", 6, 3, "Chocolate");
+    task2 = new Task("Save The World", 9, 2, "Chocolate");
+    task3 = new Task("Blow up the Death Star", 10, 1, "Chocolate");
+    task4 = new Task("Save school bus from river", 4, 5, "Chocolate");
+
   })
 
   it("should get hero's name", function () {
@@ -64,5 +73,14 @@ describe('Test Hero', function(){
     myHero.setFavFood( "Brocoli");
     myHero.eatFood( myFood );
     assert.strictEqual(myHero.health, 65);
+  });
+
+  it("hero can sort tasks by difficulty", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.sortTaskByDifficulty();
+    assert.strictEqual(myHero.tasks[0].name, "Blow up the Death Star");
   });
 })
