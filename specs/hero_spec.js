@@ -1,6 +1,7 @@
 var Hero = require('../hero.js');
 var Food = require('../food.js');
 var Task = require('../task.js');
+var Villian = require('../villian.js');
 var assert = require('assert');
 
 describe('Test Hero', function(){
@@ -12,7 +13,7 @@ describe('Test Hero', function(){
   var task3;
   var task4;
   var task5;
-
+  var drx;
   beforeEach(function () {
     myHero = new Hero("Batman");
     myFood = new Food( "Brocoli", 10);
@@ -21,6 +22,7 @@ describe('Test Hero', function(){
     task3 = new Task("Blow up the Death Star", 10, 1, 2);
     task4 = new Task("Save school bus from river", 4, 5, 7);
     task5 = new Task("Helping an elderly lady cross the street ", 4, 5, 1);
+    drx = new Villian("Doctor X");
   })
 
   it("should get hero's name", function () {
@@ -187,4 +189,9 @@ describe('Test Hero', function(){
     assert.strictEqual( myHero.rewards, 1 );
   });
 
+  it("hero can use shield and not be affect by Villian's attacks", function () {
+    myHero.deployShield();
+    drx.attack( myHero, "OrbitalHeel" );
+    assert.strictEqual(myHero.health, 100);
+  })
 })

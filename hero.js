@@ -6,6 +6,7 @@ var Hero = function( name ){
   this.favFood = {name: null};
   this.tasks = [];
   this.rewards = 0;
+  this.isShielded = false;
 }
 
 Hero.prototype = {
@@ -102,6 +103,17 @@ Hero.prototype = {
   getUnfinishedTasks: function () {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.false;
+  },
+
+  deployShield: function () {
+    this.isShielded = true;
+  },
+
+  getDamage: function ( attackValue ) {
+    if(!this.isShielded){
+      this.health -= attackValue;
+    }
+    //otherwise no damage at all
   }
 };
 

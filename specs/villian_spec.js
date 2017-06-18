@@ -35,6 +35,6 @@ describe('Test Villian', function(){
     drx.superCharge();
     drx.attack( superman, "FulNeckSwing" );
     assert.strictEqual( superman.health, 40 );
-  })
+  });
 
 })

@@ -1,5 +1,6 @@
 var Villian = function( name ){
   this.name = name;
+  this.health = 100;
   this.moves = {
     Punch: 10,
     Kick: 15,
@@ -18,7 +19,7 @@ Villian.prototype = {
     if( this.isSuperCharged ){
       superChargeFactor = 2;
     }
-    hero.health -= this.moves[move] * superChargeFactor;
+    hero.getDamage(this.moves[move] * superChargeFactor);
   },
 
   superCharge: function () {
