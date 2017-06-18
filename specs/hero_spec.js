@@ -2,7 +2,7 @@ var Hero = require('../hero.js');
 var assert = require('assert');
 
 
-describe('account', function(){
+describe('Test Hero', function(){
 
   var myHero;
 
