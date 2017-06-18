@@ -1,6 +1,7 @@
 var Villian = function( name ){
   this.name = name;
   this.health = 100;
+  this.isSuperCharged = false;
   this.moves = {
     Punch: 10,
     Kick: 15,
@@ -8,9 +9,10 @@ var Villian = function( name ){
     SideStepElbow: 20,
     OrbitalHeel: 21,
     GutPunch: 18,
-    KneeCrusher: 42
+    KneeCrusher: 42,
+    IrishWhip: 33,
+    AtomicDrop: 45
   };
-  this.isSuperCharged = false;
 }
 
 Villian.prototype = {

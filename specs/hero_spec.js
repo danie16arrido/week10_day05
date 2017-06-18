@@ -14,6 +14,7 @@ describe('Test Hero', function(){
   var task4;
   var task5;
   var drx;
+
   beforeEach(function () {
     myHero = new Hero("Batman");
     myFood = new Food( "Brocoli", 10);
@@ -193,5 +194,6 @@ describe('Test Hero', function(){
     myHero.deployShield();
     drx.attack( myHero, "OrbitalHeel" );
     assert.strictEqual(myHero.health, 100);
-  })
+  });
+  
 })

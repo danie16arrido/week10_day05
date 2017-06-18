@@ -1,7 +1,6 @@
 var Task = require('../task.js');
 var assert = require('assert');
 
-
 describe('Test Task', function(){
 
   var myTask;
@@ -39,6 +38,6 @@ describe('Test Task', function(){
   it("task can me marked as completed", function () {
     myTask.setAsCompleted();
     assert.strictEqual(myTask.isComplete, true);
-  } );
+  });
 
 })

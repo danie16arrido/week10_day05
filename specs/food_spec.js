@@ -1,7 +1,6 @@
 var Food = require('../food.js');
 var assert = require('assert');
 
-
 describe('Test Food', function(){
 
   var myFood;

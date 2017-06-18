@@ -19,5 +19,6 @@ describe('Test Rat', function(){
   it("rat can contaminate food", function () {
     myRat.touchFood( food );
     assert.strictEqual( true, food.isPoisonous );
-  })
+  });
+  
 })
