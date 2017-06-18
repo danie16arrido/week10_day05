@@ -22,4 +22,13 @@ describe('account', function(){
     myHero.setHealth(99);
     assert.equal( myHero.health, 99);
   });
+
+  it("should not have fav food to start with", function () {
+    assert.strictEqual( myHero.favFood.name, null);
+  });
+
+  it("should be able to have fav food", function () {
+    myHero.setFavFood("Banana");
+    assert.strictEqual( myHero.favFood.name, "Banana");
+  });
 })
