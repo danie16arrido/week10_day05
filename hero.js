@@ -72,6 +72,9 @@ Hero.prototype = {
     if(this.health > 100){
       this.health = 100;
     }
+    if(this.health < 0 ){
+      this.health = 0;
+    }
   },
 
   sortTaskBy: function ( sortingKeyWord, order) {
@@ -113,6 +116,7 @@ Hero.prototype = {
     if(!this.isShielded){
       this.health -= attackValue;
     }
+    this.adjustHealthValue();
     //otherwise no damage at all
   }
 };

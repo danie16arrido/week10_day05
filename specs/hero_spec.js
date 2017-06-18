@@ -195,5 +195,10 @@ describe('Test Hero', function(){
     drx.attack( myHero, "OrbitalHeel" );
     assert.strictEqual(myHero.health, 100);
   });
-  
+
+  it("hero can not have negative health", function () {
+    myHero.getDamage(110);
+    assert.strictEqual(myHero.health, 0);
+  })
+
 })
