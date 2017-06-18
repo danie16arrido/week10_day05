@@ -7,7 +7,7 @@ describe('Test Task', function(){
   var myTask;
 
   beforeEach(function () {
-    myTask = new Task("Kill Monsters", 10, 5, "Chocolate");
+    myTask = new Task("Kill Monsters", 10, 5, 5);
   })
 
   it("task has a difficulty level", function () {
@@ -29,7 +29,7 @@ describe('Test Task', function(){
   });
 
   it("task has a reward", function () {
-    assert.strictEqual(myTask.reward, "Chocolate");
+    assert.strictEqual(myTask.reward, 5);
   });
 
   it("task is not completed to start with", function () {

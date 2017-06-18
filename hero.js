@@ -5,6 +5,7 @@ var Hero = function( name ){
   this.health = 100;
   this.favFood = {name: null};
   this.tasks = [];
+  this.rewards = 0;
 }
 
 Hero.prototype = {
@@ -56,6 +57,9 @@ Hero.prototype = {
     this.sortTaskBy( "defcon");
   },
 
+  sortTaskByReward: function () {
+    this.sortTaskBy( "reward", 'desc');
+  },
   setTaskAsCompleted: function ( task ) {
     task.setAsCompleted();
   },

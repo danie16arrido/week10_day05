@@ -15,10 +15,10 @@ describe('Test Hero', function(){
   beforeEach(function () {
     myHero = new Hero("Batman");
     myFood = new Food( "Brocoli", 10);
-    task1 = new Task("Kill Monster", 6, 3, "Chocolate");
-    task2 = new Task("Save The World", 9, 2, "Chocolate");
-    task3 = new Task("Blow up the Death Star", 10, 1, "Chocolate");
-    task4 = new Task("Save school bus from river", 4, 5, "Chocolate");
+    task1 = new Task("Kill Monster", 6, 3, 5);
+    task2 = new Task("Save The World", 9, 2, 3);
+    task3 = new Task("Blow up the Death Star", 10, 1, 2);
+    task4 = new Task("Save school bus from river", 4, 5, 7);
 
   })
 
@@ -91,6 +91,15 @@ describe('Test Hero', function(){
     myHero.addTask( task4 );
     myHero.sortTaskByUrgency();
     assert.strictEqual(myHero.tasks[0].name, "Blow up the Death Star");
+  });
+
+  it("hero can sort tasks by urgency", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.sortTaskByReward();
+    assert.strictEqual(myHero.tasks[0].name, "Save school bus from river");
   });
 
   it("hero can view completed tasks", function () {
