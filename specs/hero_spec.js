@@ -100,7 +100,18 @@ describe('Test Hero', function(){
     myHero.addTask( task4 );
     myHero.setTaskAsCompleted( task1 );
     myHero.setTaskAsCompleted( task4 );
-    var completed = myHero.getCompletedTask();
+    var completed = myHero.getCompletedTasks();
+    assert.strictEqual(completed.length, 2);
+  });
+
+  it("hero can view completed tasks", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.setTaskAsCompleted( task1 );
+    myHero.setTaskAsCompleted( task4 );
+    var completed = myHero.getCompletedTasks();
     assert.strictEqual(completed.length, 2);
   });
 })

@@ -60,7 +60,7 @@ Hero.prototype = {
     task.setAsCompleted();
   },
 
-  getCompletedTask: function () {
+  getCompletedTasks: function () {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.true;
   }
