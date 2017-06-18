@@ -7,7 +7,7 @@ describe('Test Task', function(){
   var myTask;
 
   beforeEach(function () {
-    myTask = new Task("Kill Monsters", 10, 5);
+    myTask = new Task("Kill Monsters", 10, 5, "Chocolate");
   })
 
   it("task has a difficulty level", function () {
@@ -26,6 +26,10 @@ describe('Test Task', function(){
   it("can set defcon to new value", function () {
     myTask.setDefcon(4);
     assert.strictEqual(myTask.defcon, 4);
+  });
+
+  it("task has a reward", function () {
+    assert.strictEqual(myTask.reward, "Chocolate");
   });
 
 })

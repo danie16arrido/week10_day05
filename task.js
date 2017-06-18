@@ -1,7 +1,8 @@
-var Task = function ( name, difficulty, defcon) {
+var Task = function ( name, difficulty, defcon, reward) {
   this.name = name;
   this.difficulty = difficulty;
   this.defcon = defcon;
+  this.reward = reward;
 
 }
 
