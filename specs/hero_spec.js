@@ -92,4 +92,15 @@ describe('Test Hero', function(){
     myHero.sortTaskByUrgency();
     assert.strictEqual(myHero.tasks[0].name, "Blow up the Death Star");
   });
+
+  it("hero can view completed tasks", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.setTaskAsCompleted( task1 );
+    myHero.setTaskAsCompleted( task4 );
+    var completed = myHero.getCompletedTask();
+    assert.strictEqual(completed.length, 2);
+  });
 })

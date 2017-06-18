@@ -54,7 +54,17 @@ Hero.prototype = {
 
   sortTaskByUrgency: function () {
     this.sortTaskBy( "defcon");
+  },
+
+  setTaskAsCompleted: function ( task ) {
+    task.setAsCompleted();
+  },
+
+  getCompletedTask: function () {
+    var abc = _.groupBy( this.tasks, "isComplete");
+    return abc.true;
   }
+
 
 
 
