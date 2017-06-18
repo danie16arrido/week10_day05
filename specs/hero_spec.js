@@ -122,4 +122,12 @@ describe('Test Hero', function(){
     var unfinished = myHero.getUnfinishedTasks();
     assert.strictEqual(unfinished.length, 3);
   });
+
+  it("hero can lose health when eating poisonous food", function () {
+    myFood.setPoisonous();
+    assert.strictEqual( myHero.health, 100 );
+    myHero.eatFood( myFood );
+    assert.strictEqual( myHero.health, 90)
+
+  });
 })

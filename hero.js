@@ -32,11 +32,16 @@ Hero.prototype = {
   },
 
   filterFoodValue: function ( food ) {
+    var factor = 0;
     if(food.name === this.favFood.name){
-      return food.value * 1.5;
-    } else {
-      return food.value;
+      factor = 1.5;
+    }else if( food.isPoisonous ) {
+      factor = -1;
     }
+    else {
+      factor = 1;
+    }
+    return food.value * factor;
   },
 
   adjustHealthValue: function () {
