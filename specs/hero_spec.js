@@ -11,6 +11,7 @@ describe('Test Hero', function(){
   var task2;
   var task3;
   var task4;
+  var task5;
 
   beforeEach(function () {
     myHero = new Hero("Batman");
@@ -19,7 +20,7 @@ describe('Test Hero', function(){
     task2 = new Task("Save The World", 9, 2, 3);
     task3 = new Task("Blow up the Death Star", 10, 1, 2);
     task4 = new Task("Save school bus from river", 4, 5, 7);
-
+    task5 = new Task("Helping an elderly lady cross the street ", 4, 5, 1);
   })
 
   it("should get hero's name", function () {
@@ -137,6 +138,53 @@ describe('Test Hero', function(){
     assert.strictEqual( myHero.health, 100 );
     myHero.eatFood( myFood );
     assert.strictEqual( myHero.health, 90)
-
   });
+
+  it("hero can fight poisonous food for 1 reward", function () {
+    myHero.addTask( task1 );
+    myHero.setTaskAsCompleted( task1 );
+
+    myFood.setPoisonous();
+    assert.strictEqual( myHero.health, 100 );
+    assert.strictEqual( myHero.rewards, 5 );
+    myHero.eatFood( myFood );
+    assert.strictEqual( myHero.health, 100);
+    assert.strictEqual( myHero.rewards, 4 );
+  });
+
+  it("hero does not have enough rewards and can Not fight poisonous food", function () {
+    myFood.setPoisonous();
+    assert.strictEqual( myHero.health, 100 );
+    assert.strictEqual( myHero.rewards, 0 );
+    myHero.eatFood( myFood );
+    assert.strictEqual( myHero.health, 90);
+    assert.strictEqual( myHero.rewards, 0 );
+  });
+
+  it("hero can fight his/her poisonous  fav food for 2 rewards", function () {
+    myHero.addTask( task1 );
+    myHero.setTaskAsCompleted( task1 );
+    myHero.setFavFood( myFood.name );
+
+    myFood.setPoisonous();
+    assert.strictEqual( myHero.health, 100 );
+    assert.strictEqual( myHero.rewards, 5 );
+    myHero.eatFood( myFood );
+    assert.strictEqual( myHero.health, 100);
+    assert.strictEqual( myHero.rewards, 3 );
+  });
+
+  it("hero does not have enough rewards and can Not fight his/her poisonous  fav food", function () {
+    myHero.addTask( task5 );
+    myHero.setTaskAsCompleted( task5);
+    myHero.setFavFood( myFood.name );
+
+    myFood.setPoisonous();
+    assert.strictEqual( myHero.health, 100 );
+    assert.strictEqual( myHero.rewards, 1 );
+    myHero.eatFood( myFood );
+    assert.strictEqual( myHero.health, 85);
+    assert.strictEqual( myHero.rewards, 1 );
+  });
+
 })

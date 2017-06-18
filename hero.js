@@ -32,16 +32,39 @@ Hero.prototype = {
   },
 
   filterFoodValue: function ( food ) {
-    var factor = 0;
-    if(food.name === this.favFood.name){
+    var isPoison = food.isPoisonous;
+    var isFav = this.foodIsFav( food );
+    var factor;
+    if ( isFav ){
       factor = 1.5;
-    }else if( food.isPoisonous ) {
-      factor = -1;
-    }
-    else {
+      if( isPoison ){
+        factor *= this.checkRewards(2);
+      }
+    } else {
       factor = 1;
+      if ( isPoison ){
+        factor *= this.checkRewards(1);
+      }
     }
     return food.value * factor;
+  },
+
+  checkRewards: function ( rewardsNeeded ) {
+    var factor = 1;
+    if( this.rewards >= rewardsNeeded){
+      this.rewards -= rewardsNeeded;
+    }else {
+      factor = -1;
+    }
+    return factor;
+  },
+
+  foodIsFav: function ( food ) {
+    return food.name === this.favFood.name;
+  },
+
+  hasRewards: function () {
+    return ( this.rewards >= 1) ? true : false;
   },
 
   adjustHealthValue: function () {
@@ -65,6 +88,7 @@ Hero.prototype = {
   sortTaskByReward: function () {
     this.sortTaskBy( "reward", 'desc');
   },
+
   setTaskAsCompleted: function ( task ) {
     task.setAsCompleted();
     this.rewards += task.reward;
@@ -74,6 +98,7 @@ Hero.prototype = {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.true;
   },
+
   getUnfinishedTasks: function () {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.false;
