@@ -67,17 +67,11 @@ Hero.prototype = {
   getCompletedTasks: function () {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.true;
-  }
-  ,
-
+  },
   getUnfinishedTasks: function () {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.false;
   }
-
-
-
-
 };
 
 module.exports= Hero;
