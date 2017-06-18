@@ -2,6 +2,7 @@ var Hero = function( name ){
   this.name = name;
   this.health = 100;
   this.favFood = {name: null};
+  this.tasks = [];
 }
 
 Hero.prototype = {
@@ -16,6 +17,10 @@ Hero.prototype = {
   sayName: function () {
     var text = "I am the great ";
     return text + this.name;
+  },
+
+  addTask: function ( task ) {
+    this.tasks.push( task );
   }
 };
 

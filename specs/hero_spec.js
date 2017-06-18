@@ -35,4 +35,13 @@ describe('account', function(){
   it("should talk his name", function () {
     assert.strictEqual(myHero.sayName(), "I am the great Batman");
   });
+
+  it("hero has no tasks when created",function () {
+    assert.strictEqual(myHero.tasks.length, 0);
+  });
+
+  it("can add to tasks", function () {
+    myHero.addTask("kill_monster");
+    assert.strictEqual(myHero.tasks.length, 1);
+  })
 })
