@@ -57,5 +57,12 @@ describe('Test Hero', function(){
   it("hero can not increse health over 100", function () {
     myHero.eatFood( myFood );
     assert.strictEqual(myHero.health, 100);
-  })
+  }),
+
+  it("hero can get more from his fav food", function () {
+    myHero.setHealth( 50 );
+    myHero.setFavFood( "Brocoli");
+    myHero.eatFood( myFood );
+    assert.strictEqual(myHero.health, 65);
+  });
 })

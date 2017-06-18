@@ -24,9 +24,21 @@ Hero.prototype = {
   },
 
   eatFood: function ( food ) {
-    this.health += food.value;
+    this.health += this.filterFoodValue( food );
+    this.adjustHealthValue();
+  },
+
+  filterFoodValue: function ( food ) {
+    if(food.name === this.favFood.name){
+      return food.value * 1.5;
+    } else {
+      return food.value;
+    }
+  },
+
+  adjustHealthValue: function () {
     if(this.health > 100){
-      this.setHealth(100);
+      this.health = 100;
     }
   }
 };
