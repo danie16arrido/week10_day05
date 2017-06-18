@@ -18,4 +18,9 @@ describe('Test Food', function(){
     assert.strictEqual( myFood.value, 45);
   });
 
+  it("food can became poisonous", function () {
+    myFood.setPoisonous();
+    assert.strictEqual(true, myFood.isPoisonous);
+  });
+
 })
