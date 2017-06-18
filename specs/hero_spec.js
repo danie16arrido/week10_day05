@@ -31,4 +31,8 @@ describe('account', function(){
     myHero.setFavFood("Banana");
     assert.strictEqual( myHero.favFood.name, "Banana");
   });
+
+  it("should talk his name", function () {
+    assert.strictEqual(myHero.sayName(), "I am the great Batman");
+  });
 })

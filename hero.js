@@ -11,6 +11,11 @@ Hero.prototype = {
 
   setFavFood: function ( food ) {
     this.favFood.name = food;
+  },
+
+  sayName: function () {
+    var text = "I am the great ";
+    return text + this.name;
   }
 };
 
