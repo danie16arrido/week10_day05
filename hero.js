@@ -44,10 +44,19 @@ Hero.prototype = {
     }
   },
 
+  sortTaskBy: function ( sortingKeyWord, order) {
+    this.tasks = _.orderBy(this.tasks, sortingKeyWord, order );
+  },
+
   sortTaskByDifficulty: function () {
-    this.tasks = _.orderBy(this.tasks, "difficulty", 'desc' );
-    console.log(this.tasks);
+    this.sortTaskBy( "difficulty", "desc");
+  },
+
+  sortTaskByUrgency: function () {
+    this.sortTaskBy( "defcon");
   }
+
+
 
 };
 

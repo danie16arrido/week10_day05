@@ -83,4 +83,13 @@ describe('Test Hero', function(){
     myHero.sortTaskByDifficulty();
     assert.strictEqual(myHero.tasks[0].name, "Blow up the Death Star");
   });
+
+  it("hero can sort tasks by urgency", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.sortTaskByUrgency();
+    assert.strictEqual(myHero.tasks[0].name, "Blow up the Death Star");
+  });
 })
