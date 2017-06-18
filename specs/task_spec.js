@@ -32,4 +32,13 @@ describe('Test Task', function(){
     assert.strictEqual(myTask.reward, "Chocolate");
   });
 
+  it("task is not completed to start with", function () {
+    assert.strictEqual(myTask.isComplete, false);
+  });
+
+  it("task can me marked as completed", function () {
+    myTask.setAsCompleted();
+    assert.strictEqual(myTask.isComplete, true);
+  } );
+
 })
