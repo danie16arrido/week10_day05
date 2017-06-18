@@ -123,6 +123,15 @@ describe('Test Hero', function(){
     assert.strictEqual(unfinished.length, 3);
   });
 
+  it("hero can get rewards when completing task", function () {
+    myHero.addTask( task1 );
+    myHero.addTask( task2 );
+    myHero.addTask( task3 );
+    myHero.addTask( task4 );
+    myHero.setTaskAsCompleted( task1 );
+    assert.strictEqual( myHero.rewards, task1.reward);
+  });
+
   it("hero can lose health when eating poisonous food", function () {
     myFood.setPoisonous();
     assert.strictEqual( myHero.health, 100 );

@@ -67,6 +67,7 @@ Hero.prototype = {
   },
   setTaskAsCompleted: function ( task ) {
     task.setAsCompleted();
+    this.rewards += task.reward;
   },
 
   getCompletedTasks: function () {
