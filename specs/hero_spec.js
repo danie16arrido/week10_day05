@@ -1,13 +1,16 @@
 var Hero = require('../hero.js');
+var Food = require('../food.js');
 var assert = require('assert');
 
 
 describe('Test Hero', function(){
 
   var myHero;
+  var myFood;
 
   beforeEach(function () {
     myHero = new Hero("Batman");
+    myFood = new Food( "Brocoli", 10);
   })
 
   it("should get hero's name", function () {
@@ -43,5 +46,16 @@ describe('Test Hero', function(){
   it("can add to tasks", function () {
     myHero.addTask("kill_monster");
     assert.strictEqual(myHero.tasks.length, 1);
+  });
+
+  it("hero can eat food", function () {
+    myHero.setHealth(40);
+    myHero.eatFood( myFood );
+    assert.strictEqual(myHero.health, 50);
+  });
+
+  it("hero can not increse health over 100", function () {
+    myHero.eatFood( myFood );
+    assert.strictEqual(myHero.health, 100);
   })
 })

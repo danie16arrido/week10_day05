@@ -21,6 +21,13 @@ Hero.prototype = {
 
   addTask: function ( task ) {
     this.tasks.push( task );
+  },
+
+  eatFood: function ( food ) {
+    this.health += food.value;
+    if(this.health > 100){
+      this.setHealth(100);
+    }
   }
 };
 
