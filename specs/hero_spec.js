@@ -110,8 +110,7 @@ describe('Test Hero', function(){
     myHero.addTask( task3 );
     myHero.addTask( task4 );
     myHero.setTaskAsCompleted( task1 );
-    myHero.setTaskAsCompleted( task4 );
-    var completed = myHero.getCompletedTasks();
-    assert.strictEqual(completed.length, 2);
+    var unfinished = myHero.getUnfinishedTasks();
+    assert.strictEqual(unfinished.length, 3);
   });
 })

@@ -64,6 +64,12 @@ Hero.prototype = {
     var abc = _.groupBy( this.tasks, "isComplete");
     return abc.true;
   }
+  ,
+
+  getUnfinishedTasks: function () {
+    var abc = _.groupBy( this.tasks, "isComplete");
+    return abc.false;
+  }
 
 
 
