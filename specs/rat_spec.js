@@ -2,8 +2,6 @@ var Rat = require('../rat.js');
 var Food = require('../food.js');
 var assert = require('assert');
 
-
-
 describe('Test Rat', function(){
 
   var myRat;
