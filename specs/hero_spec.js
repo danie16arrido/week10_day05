@@ -12,5 +12,14 @@ describe('account', function(){
 
   it("should get hero's name", function () {
     assert.equal(myHero.name, "Batman");
-  })
+  });
+
+  it("should have 100% health when created", function () {
+    assert.equal(myHero.health, 100);
+  });
+
+  it("should be able to set new health value", function () {
+    myHero.setHealth(99);
+    assert.equal( myHero.health, 99);
+  });
 })
